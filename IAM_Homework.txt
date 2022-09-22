@@ -1,0 +1,13 @@
+
+3 new people have joined the ficitonal organization, the security team
+is trying to find a way to create their user accounts and grant them 
+ ead only access in AWS to the s3, Dynamo DB and API Gateway service
+and have reached out to your DevOps team for assistance. Put together
+a solution for them and set it up in your own AWS account
+
+
+1. Create policy for the users which provides read only access to API Gateway, 
+    Dynamo DB, S3.
+2. Create user group and add above created policy to the group.
+3. Create three users, and while creating add them to the user group
+4. Save .csv file, and test user's accesses

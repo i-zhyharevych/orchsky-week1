@@ -1,0 +1,42 @@
+
+// S3 Homework
+// The company wants to host a static website using s3 and has 
+// reached out to the DevOps team for assistance, they have done 
+// most of the work themselves by providing the html files and
+// the bucket policy that the security team wrote for them but
+// there seems to be an issue with one of the files. 
+// Troubleshoot and resolve the issue - demo your working solution 
+// next class. You should be able to access the html index page
+// from the bucket endpoint (endpoint url located at the properties 
+// tab of your bucket - scroll through to find it)
+
+Old version od bucketpolicy permissions
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "PublicReadGetObject",
+			"Effect": "Deny",
+			"Principal": "*",
+			"Action": [
+				"s3:GetObject"
+			],
+			"Resource": [
+				"arn:aws:s3::index.html/*"
+			]
+		}
+	]
+}
+
+1. I created S3 public bucket
+2. Added provided client files to the bucket including bucket policy
+3. After reviewing bucket policy file, I figured that there were a few 
+mistakes in the bucketpolicypermissions.json file, so I generated new policy
+according to the task using AWS policy generator.
+policy needed updated Resource and Effect
+4. I added new policy to the the bucket->permissions->bucket policy
+5. Test it. index.html file is accessible through endpoint URL, error.html file is not,
+because it wasn't part of the policy and didn't make it public using ACL
+ 
+
+Note: other way to do this without using policy could be just add public access through ACL.
